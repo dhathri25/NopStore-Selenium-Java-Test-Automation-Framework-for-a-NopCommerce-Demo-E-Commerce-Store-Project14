@@ -1,0 +1,39 @@
+Technical Design Document: NopStore Automation Framework
+1. Project Overview
+Project Name: NopStore Test Automation
+
+Application Under Test (AUT): NopCommerce Demo E-Commerce Store
+
+Objective: To design and implement a robust, scalable, and maintainable automated testing suite for Project 14 of the HCL Hackathon.
+
+2. Architectural Framework
+Design Pattern: Page Object Model (POM) – This architecture separates the web element locators from the test scripts, ensuring that UI changes require updates in only one location.
+
+Framework Logic: A modular approach where each web page has a corresponding Java class to represent its functional capabilities.
+
+3. Technical Stack
+Language: Java (JDK 11+)
+
+Automation Engine: Selenium WebDriver (v4.x)
+
+Test Runner: TestNG
+
+Build Tool: Maven (Project Object Model - pom.xml)
+
+Data Management: Java Faker (for dynamic, data-driven testing)
+
+4. Framework Core Components
+TestBase.java: Manages the lifecycle of the WebDriver, including browser initialization, configuration loading, and teardown procedures.
+
+Page Classes: Located in the Pages package, these classes use PageFactory to initialize elements and define actions (e.g., RegistrationPage.java, LoginPage.java).
+
+Test Classes: Located in the Tests package, these contain the actual test logic and assertions (e.g., RegistrationTests.java).
+
+testng.xml: The primary configuration file for controlling test suites, parallel execution, and listener integration.
+
+5. Key Implementation Features
+Synchronization: Integrated Explicit Waits (WebDriverWait) to handle asynchronous loading and ensure script stability across different network speeds.
+
+Automated Reporting: Integrated TestListener to monitor test execution and automatically trigger screenshot capture on failure for debugging purposes.
+
+Data-Driven Capabilities: Use of the Faker library allows the suite to run multiple registration cycles without manual data intervention.
